@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :appointments
-  resources :agents
+  resources :agents, only: [:index]
   resources :houses
   resource :users, only: [:create]
   post '/login', to: 'users#login'
