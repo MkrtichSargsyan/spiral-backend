@@ -71,8 +71,8 @@ end
                bedrooms: rand(1..5).to_s,
                bathrooms: rand(1..3).to_s,
                sqft: rand(2000..3000).to_s,
-               lat: Faker::Address.latitude,
-               long: Faker::Address.longitude,
+               lat: rand(40.0..40.9),
+               long: rand(44.0..44.9),
                acres: '0.25',
                agent_id: rand(1..8).to_s)
 end
