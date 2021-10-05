@@ -2,22 +2,27 @@ class ApplicationController < ActionController::API
   before_action :authorized
 
   def hmac_secret
-    ENV['API_SECRET_KEY']
+    ENV['API_SECRET']
   end
 
   def encode_token(payload)
     JWT.encode(payload, hmac_secret, 'HS256')
   end
 
+  def auth_header
+    # { Authorization: 'Bearer <token>' }
+    request.headers['Authorization']
+  end
+
   def decoded_token
-    begin
-      token = request.headers['Authorization']
-      decoded_array = JWT.decode(token, hmac_secret, true, algorithm: 'HS256')
-      payload = decoded_array.first
-    rescue StandardError # JWT::VerificationError
-      return nil
+    if auth_header
+      token = auth_header.split(' ')[1]
+      begin
+        JWT.decode(token, hmac_secret, 'HS256')
+      rescue JWT::DecodeError
+        nil
+      end
     end
-    payload
   end
 
   def logged_in_user

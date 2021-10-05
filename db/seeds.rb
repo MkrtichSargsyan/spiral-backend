@@ -5,33 +5,9 @@ user1 = User.create(name: 'Mike', email: 'mike@gmail.com', password: 'aaaaaa')
 user2 = User.create(name: 'Niko', email: 'niko@gmail.com', password: 'aaaaaa')
 user3 = User.create(name: 'Chad', email: 'chad@gmail.com', password: 'aaaaaa')
 
-# agent1 = Agent.create(name: 'Agent1', title: 'Broker / Realtor',
-#                       photo: 'https://medias.spotern.com/spots/w640/0/572-1564581110.jpg', number: '(919) 382-2000')
-# agent2 = Agent.create(name: 'Agent2', title: 'Broker / Realtor',
-#                       photo: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Smith_Matrix_mannequins_(cropped).jpg', number: '(919) 382-2001')
-# agent3 = Agent.create(name: 'Agent3', title: 'Broker / Realtor',
-#                       photo: 'https://www.giantfreakinrobot.com/wp-content/uploads/2021/06/1d506066c6704153fdfef826d90b0b65f6a3cc6c-900x450.jpeg', number: '(919) 382-2002')
-
-# agent4 = Agent.create(name: 'Agent4', title: 'Broker / Realtor',
-#                       photo: 'https://medias.spotern.com/spots/w640/0/572-1564581110.jpg', number: '(919) 382-2000')
-# agent5 = Agent.create(name: 'Agent5', title: 'Broker / Realtor',
-#                       photo: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Smith_Matrix_mannequins_(cropped).jpg', number: '(919) 382-2001')
-# agent6 = Agent.create(name: 'Agent6', title: 'Broker / Realtor',
-#                       photo: 'https://www.giantfreakinrobot.com/wp-content/uploads/2021/06/1d506066c6704153fdfef826d90b0b65f6a3cc6c-900x450.jpeg', number: '(919) 382-2002')
-
-# agent7 = Agent.create(name: 'Agent7', title: 'Broker / Realtor',
-#                       photo: 'https://medias.spotern.com/spots/w640/0/572-1564581110.jpg', number: '(919) 382-2000')
-# agent8 = Agent.create(name: 'Agent8', title: 'Broker / Realtor',
-#                       photo: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Smith_Matrix_mannequins_(cropped).jpg', number: '(919) 382-2001')
-# agent9 = Agent.create(name: 'Agent9', title: 'Broker / Realtor',
-#                       photo: 'https://www.giantfreakinrobot.com/wp-content/uploads/2021/06/1d506066c6704153fdfef826d90b0b65f6a3cc6c-900x450.jpeg', number: '(919) 382-2002')
-
-#  photo: 'https://www.giantfreakinrobot.com/wp-content/uploads/2021/06/1d506066c6704153fdfef826d90b0b65f6a3cc6c-900x450.jpeg',
-
 url = 'https://randomuser.me/api/?results=12'
 
 response = RestClient.get(url) 
-# array to store the response
 results = JSON.parse(response.body)
 
 8.times do |i|
