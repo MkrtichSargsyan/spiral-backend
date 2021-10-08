@@ -27,6 +27,7 @@ gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'jwt'
 gem 'rack-cors'
 gem 'rest-client' 
+gem 'awesome_print'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

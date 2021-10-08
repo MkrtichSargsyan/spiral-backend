@@ -6,27 +6,44 @@ class UsersController < ApplicationController
     p '.............'
     p @user
     if @user.valid?
-      token = encode_token({ email: @user.email, password: @user.password })
-      render json: { token: token }
+      token = encode_token({ email: @user.email, password: @user.password_digest })
+      render json: { token: token, user: @user }
     else
-      render json: { error: 'Invalid username or password' }
+      render status: :unauthorized, json: { message: 'Invalid email or password' }
     end
   end
 
   def login
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
-      token = encode_token({ email: @user.email, password: @user.password })
-      render json: { token: token }
+
+      token = encode_token({ email: @user.email, password: @user.password_digest })
+      render json: { token: token, user: @user }
     else
-      render json: { error: 'Invalid username or password' }
+      render status: :unauthorized, json: { message: 'Invalid email or password' }
     end
   end
 
-  def auto_login
+  def apply
     if logged_in_user
-      render json: logged_in_user
+      user = logged_in_user
+      house_id = params[:house_id]
+      user.appointments.create(user_id:user_id,job_id:job_id)
+    else
+      p 'You are not logged in bruh'
     end
+
+    # @user = User.find(params[:user_id])
+    # p '////////////'
+    # p @user
+  
+    # user_id = params[:user_id]
+    # agent_id = params[:agent_id]
+    # @user.appointments.create(user_id:user_id,job_id:job_id)
+  end
+
+  def auto_login
+    render json: logged_in_user if logged_in_user
   end
 
   private
