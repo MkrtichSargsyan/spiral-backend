@@ -34,7 +34,16 @@ class UsersController < ApplicationController
   end
 
   def show_appointments
-    render json: logged_in_user.appointments
+    appointments = logged_in_user.appointments
+    appointment_data = []
+
+    appointments.each do |el|
+      temp = {}
+      temp[:user_house] = el.house
+      temp[:agent_to_connect] = el.house.agent
+      appointment_data << temp
+    end
+    render json: appointment_data
   end
 
   def auto_login
