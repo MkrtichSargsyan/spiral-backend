@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2021_10_08_033439) do
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.datetime "date"
     t.bigint "user_id"
     t.integer "house_id"
     t.datetime "created_at", precision: 6, null: false
