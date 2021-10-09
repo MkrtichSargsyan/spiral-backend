@@ -26,10 +26,11 @@ ActiveRecord::Schema.define(version: 2021_10_08_033439) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "date"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.integer "house_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
   create_table "houses", force: :cascade do |t|
@@ -58,4 +59,5 @@ ActiveRecord::Schema.define(version: 2021_10_08_033439) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "appointments", "users"
 end

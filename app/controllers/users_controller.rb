@@ -26,9 +26,10 @@ class UsersController < ApplicationController
 
   def apply
     if logged_in_user
-      user = logged_in_user
+      p '...........'
+      p params
       house_id = params[:house_id]
-      user.appointments.create(user_id:user_id,job_id:job_id)
+      logged_in_user.appointments.create(house_id: house_id)
     else
       p 'You are not logged in bruh'
     end
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
     # @user = User.find(params[:user_id])
     # p '////////////'
     # p @user
-  
+
     # user_id = params[:user_id]
     # agent_id = params[:agent_id]
     # @user.appointments.create(user_id:user_id,job_id:job_id)
