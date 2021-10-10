@@ -33,16 +33,29 @@ class UsersController < ApplicationController
     end
   end
 
+  def remove_appointment
+    if logged_in_user
+      user = logged_in_user
+      appointment_id = params[:appointment_id]
+      choosed = user.appointments.find(appointment_id)
+      user.appointments.delete(choosed)
+    else
+      p 'You are not logged in bruh'
+    end
+  end
+
   def show_appointments
     appointments = logged_in_user.appointments
     appointment_data = []
 
     appointments.each do |el|
       temp = {}
+      temp[:appointment_id] = el.id
       temp[:user_house] = el.house
       temp[:agent_to_connect] = el.house.agent
       appointment_data << temp
     end
+
     render json: appointment_data
   end
 

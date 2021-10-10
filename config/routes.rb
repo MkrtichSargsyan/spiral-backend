@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get '/auto_login', to: 'users#auto_login'
   get '/show_appointments', to: 'users#show_appointments'
   post '/apply', to: 'users#apply'
+  delete '/remove_appointment', to: 'users#remove_appointment'
 end
