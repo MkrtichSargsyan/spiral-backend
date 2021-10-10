@@ -1,6 +1,6 @@
 class House < ApplicationRecord
   belongs_to :agent
 
-  # scope :house, -> { where(:attibute => value)}
-  # Ex:- scope :active, -> {where(:active => true)}
+  has_many :appointments
+  has_many :users, through: :appointments
 end
