@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorized, only: [:auto_login], :except => [:exec_client]
+  before_action :authorized, only: [:auto_login]
 
   def create
     @user = User.create(user_params)
@@ -60,7 +60,6 @@ class UsersController < ApplicationController
   end
 
   def auto_login
-    p 'sssssssssss'
     render json: logged_in_user if logged_in_user
   end
 
