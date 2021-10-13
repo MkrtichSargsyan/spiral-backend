@@ -1,7 +1,7 @@
+# rubocop:disable Metrics/BlockLength
 require 'rails_helper'
 
 RSpec.describe House, type: :model do
- 
   before { @house = FactoryBot.build(:house) }
   subject { @house }
 
@@ -22,17 +22,17 @@ RSpec.describe House, type: :model do
       before { @house.price = ' ' }
       it { should_not be_valid }
     end
- 
+
     describe 'description is empty' do
       before { @house.description = ' ' }
       it { should_not be_valid }
     end
- 
+
     describe 'features is empty' do
       before { @house.features = ' ' }
       it { should_not be_valid }
     end
- 
+
     describe 'bedrooms is empty' do
       before { @house.bedrooms = ' ' }
       it { should_not be_valid }
@@ -69,3 +69,4 @@ RSpec.describe House, type: :model do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

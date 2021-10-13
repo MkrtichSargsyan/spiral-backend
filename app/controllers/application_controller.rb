@@ -1,3 +1,5 @@
+# rubocop:disable Style/GuardClause
+
 class ApplicationController < ActionController::API
   before_action :authorized
 
@@ -15,10 +17,8 @@ class ApplicationController < ActionController::API
 
   def decoded_token
     if auth_header
-      token = auth_header.split(' ')[1]
+      token = auth_header.split[1]
       begin
-        p '/////////////////'
-        p JWT.decode(token, hmac_secret, 'HS256')
         JWT.decode(token, hmac_secret, 'HS256')
       rescue JWT::DecodeError
         nil
@@ -41,3 +41,5 @@ class ApplicationController < ActionController::API
     render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
   end
 end
+
+# rubocop:enable Style/GuardClause

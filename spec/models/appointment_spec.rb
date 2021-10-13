@@ -6,8 +6,6 @@ RSpec.describe Appointment, type: :model do
   @user = FactoryBot.build(:user)
   subject { @appointment }
 
-
   it { should respond_to(:house_id) }
   it { should respond_to(:user_id) }
-
 end
