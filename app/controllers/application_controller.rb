@@ -3,7 +3,6 @@ class ApplicationController < ActionController::API
 
   def hmac_secret
     'my super secret key'
-    # ENV['API_SECRET']
   end
 
   def encode_token(payload)
