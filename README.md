@@ -39,11 +39,11 @@ User can click any of the listed houses to get a detailed information about aver
 
 To get a local copy of the repository please run the following commands on your terminal:
 
-  $ ```git clone git@github.com:MkrtichSargsyan/spiral-backend.git```
-  $ ```cd spiral-backend```
-  $ ```rails db:create```
-  $ ```rails db:migrate```
-  $ ```rails db:seed```
+  - ```git clone git@github.com:MkrtichSargsyan/spiral-backend.git```
+  - ```cd spiral-backend```
+  - ```rails db:create```
+  - ```rails db:migrate```
+  - ```rails db:seed```
 
 ## Launch the application
 
