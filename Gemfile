@@ -23,17 +23,20 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+gem 'awesome_print'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'jwt'
 gem 'rack-cors'
-gem 'rest-client' 
-gem 'awesome_print'
+gem 'rest-client'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capybara'
   gem 'dotenv-rails'
+  gem 'factory_bot_rails'
   gem 'hirb', '~> 0.7.3'
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'shoulda-matchers', '~> 4.4', '>= 4.4.1'
 end
 
 group :development do

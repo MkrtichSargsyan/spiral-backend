@@ -1,16 +1,12 @@
 require 'rest-client'
 require 'json'
 
-user1 = User.create(name: 'Mike', email: 'mike@gmail.com', password: 'aaaaaa')
-user2 = User.create(name: 'Niko', email: 'niko@gmail.com', password: 'aaaaaa')
-user3 = User.create(name: 'Chad', email: 'chad@gmail.com', password: 'aaaaaa')
-
 url = 'https://randomuser.me/api/?results=12'
 
-response = RestClient.get(url) 
+response = RestClient.get(url)
 results = JSON.parse(response.body)
 
-8.times do |i|
+8.times do
   Agent.create(name: Faker::Name.name,
                title: 'Broker / Realtor',
                photo: results['results'].sample['picture']['medium'],
