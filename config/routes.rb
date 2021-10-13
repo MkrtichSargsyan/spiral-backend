@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'somecontroller#someaction'
-
   resources :appointments
   resources :agents, only: %i[index show] do
     get '/houses', to: 'agents#show_agent_houses'
