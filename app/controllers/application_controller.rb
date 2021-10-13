@@ -2,7 +2,8 @@ class ApplicationController < ActionController::API
   before_action :authorized
 
   def hmac_secret
-    ENV['API_SECRET']
+    'my super secret key'
+    # ENV['API_SECRET']
   end
 
   def encode_token(payload)
@@ -14,8 +15,6 @@ class ApplicationController < ActionController::API
   end
 
   def decoded_token
-    p 'aaaaaaaaaaaaaaaaaa'
-    p auth_header
     if auth_header
       token = auth_header.split(' ')[1]
       begin
