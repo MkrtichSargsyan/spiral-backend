@@ -16,6 +16,8 @@ class ApplicationController < ActionController::API
   def decoded_token
     if auth_header
       token = auth_header.split(' ')[1]
+      p 'sssssss'
+      p token
       begin
         JWT.decode(token, hmac_secret, 'HS256')
       rescue JWT::DecodeError
@@ -36,8 +38,6 @@ class ApplicationController < ActionController::API
   end
 
   def authorized
-    p 'ssssssssssss'
-    p params
     render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
   end
 end
