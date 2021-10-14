@@ -1,9 +1,6 @@
 # Spiral Api
 
 
-This project is for showing the characters and creatures from the witcher game
-This project is based on a catalogue of dog clothes
-
 ## About
 
 In this application, I have an appointment app for a Spiral's office. The user can choose from a list of houses and choose an appointment with the agent who is selling that house. The user logs in and signs up to the application using Json Web Token.
