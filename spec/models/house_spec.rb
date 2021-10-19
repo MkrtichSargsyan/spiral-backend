@@ -5,7 +5,6 @@ RSpec.describe House, type: :model do
   before { @house = FactoryBot.build(:house) }
   subject { @house }
 
-
   context 'when house is not valid' do
     describe 'address is empty' do
       before { @house.address = ' ' }
